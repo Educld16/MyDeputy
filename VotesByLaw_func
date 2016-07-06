@@ -15,12 +15,8 @@ function(VF.matrix,VA.matrix,UV.vector){
   b$xAxis(categories = vlaws)
   b$yAxis(title = list(text = "Percent"))
   len=length(vlabels)
-  for(i in 1:len){
-    b$series(data = list(
-      list(y = mat[1,i]),
-      list(y = mat[2,i]),
-      list(y = mat[3,i]),
-      list(y = mat[4,i])
-    ), name = vlabels[i], color=vcolor[i])
+   for(i in 1:len){
+    b$series(data = list( mat[1,i],mat[2,i],mat[3,i],mat[4,i])
+  , name = vlabels[i], color=vcolor[i])
   }
   b}
