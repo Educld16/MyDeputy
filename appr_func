@@ -3,7 +3,7 @@
      vote_for<-VF 
      vote_against<-VA
      user_vote<-UV
-     mat <-  (t(VF) * UV )  +   (t(VA) * ! UV )
+     mat <-  (t(vote_for) * user_vote )  +   (t(vote_against) * ! user_vote )
      perc_appr<-unname(apply( mat , 2 , mean))
      a <- rCharts:::Highcharts$new()
      a$chart(type = "column")
