@@ -1,0 +1,12 @@
+*.csv
+
+# SPSS
+*.sav
+*.por
+
+# SAS
+*.xpt
+
+# Stata
+*.dta
+*.do
