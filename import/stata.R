@@ -14,3 +14,13 @@ for (x in colnames(pdata)){
 }
 dp<-data.frame(name=colnames(pdata),pvalue=pvalue)
 dp<-dp[dp$pvalue>0.05,]  # filter by p.value
+pdata<-pdata[,(names(pdata) %in% dp$name)] 
+
+# filter by top value frequency
+topfreq<-vector()
+prowsnum<-nrow(pdata)
+for (x in colnames(pdata)){
+  topfreq<-c(topfreq,max(aggregate(pdata$idno~pdata[[x]],FUN=length)[["pdata$idno"]])/prowsnum)
+}
+df<-data.frame(name=colnames(pdata),topfreq=topfreq)
+pdata<-pdata[,names(pdata) %in% df[df$topfreq<0.95,][["name"]]]
