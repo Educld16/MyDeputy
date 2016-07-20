@@ -1,6 +1,5 @@
 library(shiny)
 library(rCharts)
-percents=T  # stats tab option
 datd <- read.csv("all.csv", sep=",", stringsAsFactors=FALSE)
 catg <- c("\u0417\u0430", "\u041f\u0440\u043e\u0442\u0438", "\u0423\u0442\u0440\u0438\u043c\u0430\u043b\u0438\u0441\u044c", "\u041d\u0435 \u0433\u043e\u043b\u043e\u0441\u0443\u0432\u0430\u043b\u0438", "\u0412\u0456\u0434\u0441\u0443\u0442\u043d\u0456")
 vcolor<-c("#caf2f1", "#a7e5ef", "#66d1e4", "#50cbe0",
@@ -17,6 +16,7 @@ shinyServer(function(input, output) {
     b$title(text = "")
     b$xAxis(categories = vlabels)
     vcolor<-c("#caf2f1", "#a7e5ef", "#66d1e4", "#22aac1", "#1b8496")
+    percents<-input$prots
     if (percents){
       for(i in 1:5){
         d[[paste("VV",i,sep="")]]<-
